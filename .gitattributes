@@ -3,26 +3,44 @@
 # Store binary assets in Git LFS and prevent text merges on them
 # ──────────────────────────────────────────────────────────────────────────────
 
-# Unreal Engine asset files
-*.uasset  filter=lfs diff=lfs merge=ours -text
-*.umap    filter=lfs diff=lfs merge=ours -text
+# Unreal Engine asset files (binary, in LFS, lockable)
+*.uasset  filter=lfs diff=lfs merge=ours -text lockable
+*.umap    filter=lfs diff=lfs merge=ours -text lockable
 *.uexp    filter=lfs diff=lfs merge=ours -text
 *.ubulk   filter=lfs diff=lfs merge=ours -text
+*.uptnl   filter=lfs diff=lfs merge=ours -text
 
-# Optional Unreal files
-#*.uptnl  filter=lfs diff=lfs merge=ours -text   # Temporal noise LODs
+# Optional Unreal temporal/noise/derived formats
+#*.udatasmith filter=lfs diff=lfs merge=ours -text
+#*.usdc      filter=lfs diff=lfs merge=ours -text
 
-# Large images
+# Text-based Unreal project files
+*.ini      text eol=crlf
+*.uproject text
+*.uplugin  text
+*.usf      text
+*.ush      text
+
+# Source art & textures (also in LFS)
 *.png     filter=lfs diff=lfs merge=ours -text
 *.jpg     filter=lfs diff=lfs merge=ours -text
+*.tga     filter=lfs diff=lfs merge=ours -text
+*.psd     filter=lfs diff=lfs merge=ours -text
+*.hdr     filter=lfs diff=lfs merge=ours -text
+*.exr     filter=lfs diff=lfs merge=ours -text
 
-# Audio
+# Audio (in LFS)
 *.wav     filter=lfs diff=lfs merge=ours -text
 *.mp3     filter=lfs diff=lfs merge=ours -text
 
-# 3D models and movies
+# 3D models & movies (in LFS)
 *.fbx     filter=lfs diff=lfs merge=ours -text
+*.obj     filter=lfs diff=lfs merge=ours -text
+*.ma      filter=lfs diff=lfs merge=ours -text
+*.mb      filter=lfs diff=lfs merge=ours -text
 *.mp4     filter=lfs diff=lfs merge=ours -text
+*.avi     filter=lfs diff=lfs merge=ours -text
+*.mov     filter=lfs diff=lfs merge=ours -text
 
 # ──────────────────────────────────────────────────────────────────────────────
 # End of .gitattributes
